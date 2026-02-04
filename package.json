@@ -1,0 +1,21 @@
+{
+  "name": "yisu-hotel-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:server": "pnpm -F server start:dev",
+    "dev:admin": "pnpm -F client-admin dev",
+    "dev:mobile": "pnpm -F client-mobile dev:h5",
+    "build": "pnpm -r build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
