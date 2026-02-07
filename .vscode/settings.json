@@ -1,3 +1,0 @@
-{
-  "prisma.prismaPath": "${workspaceFolder}\\packages\\server\\node_modules\\.bin\\prisma.cmd"
-}
