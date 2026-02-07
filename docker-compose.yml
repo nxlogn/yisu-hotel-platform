@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: yisu_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yisu123
+      POSTGRES_DB: yisu_hotel
+    ports:
+      # Changed to 5433 to avoid conflict with local Postgres on 5432
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
