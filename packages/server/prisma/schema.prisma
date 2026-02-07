@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+// packages/server/prisma/schema.prisma
+
+// 1. 定义枚举，确保类型安全
+enum UserRole {
+  USER      // C端用户
+  MERCHANT  // 商户 
+  ADMIN     // 管理员 
+}
+
+enum HotelStatus {
+  PENDING   // 审核中 
+  PUBLISHED // 已发布/审核通过 
+  REJECTED  // 不通过 
+  OFFLINE   // 下线 
+}
+
+// 2. 用户表 (支持多角色)
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  role      UserRole @default(USER) // 默认为普通用户
+  avatar    String?
+  createdAt DateTime @default(now())
+  
+  // 关系
+  hotels    Hotel[]  // 商户拥有的酒店
+  orders    Order[]  // 用户的订单
+}
+
+// 3. 酒店表 (核心业务)
+model Hotel {
+  id            Int         @id @default(autoincrement())
+  name          String      // 中文名 [cite: 58]
+  nameEn        String?     // 英文名 [cite: 58]
+  address       String      // 地址 [cite: 58]
+  starRating    Int         // 星级 (1-5) [cite: 58]
+  openingDate   DateTime    // 开业时间 [cite: 58]
+  description   String?     @db.Text
+  
+  // 扩展字段 (加分项)
+  tags          String?     // 快捷标签 (JSON字符串或逗号分隔: "亲子,免费停车") 
+  nearbyInfo    String?     @db.Text // 周边信息 (JSON) [cite: 60]
+  
+  // 审核状态
+  status        HotelStatus @default(PENDING) // 默认待审核
+  rejectReason  String?     // 审核不通过的原因 
+  
+  // 关系
+  merchantId    Int
+  merchant      User        @relation(fields: [merchantId], references: [id])
+  rooms         Room[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+// 4. 房型表
+model Room {
+  id            Int      @id @default(autoincrement())
+  name          String   // 如: 豪华大床房
+  price         Int      // 基础价格 (单位: 分) [cite: 58]
+  discount      Int?     // 优惠金额/折扣 (可选) [cite: 61]
+  capacity      Int      // 入住人数
+  size          Int?     // 面积 (平米)
+  bedType       String?  // 床型
+  imageUrl      String?
+  
+  // 关系
+  hotelId       Int
+  hotel         Hotel    @relation(fields: [hotelId], references: [id])
+  orders        Order[]
+}
+
+// 5. 订单表
+model Order {
+  id        Int      @id @default(autoincrement())
+  orderNo   String   @unique // 订单号
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  roomId    Int
+  room      Room     @relation(fields: [roomId], references: [id])
+  
+  checkIn   DateTime // 入住日期 
+  checkOut  DateTime // 离店日期 
+  
+  totalAmount Int    // 总金额
+  status      String // PENDING, PAID, CANCELLED
+  
+  createdAt DateTime @default(now())
+}
