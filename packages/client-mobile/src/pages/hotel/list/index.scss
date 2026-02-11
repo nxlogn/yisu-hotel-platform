@@ -1,0 +1,92 @@
+.list-container {
+  background-color: #f7f8fa;
+  min-height: 100vh;
+
+  .filter-bar {
+    display: flex;
+    background: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #eee;
+
+    .filter-item {
+      flex: 1;
+      text-align: center;
+      font-size: 28px;
+      color: #666;
+      &.active {
+        color: #DC143C;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .hotel-list {
+    padding: 20px;
+
+    .hotel-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+
+      .hotel-img {
+        width: 100%;
+        height: 350px;
+        background-color: #eee;
+      }
+
+      .hotel-info {
+        padding: 20px;
+
+        .hotel-name {
+          font-size: 32px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        .hotel-rating {
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          .rating-text {
+            margin-left: 10px;
+            font-size: 24px;
+            color: #ff9800;
+          }
+        }
+
+        .hotel-tags {
+          margin-top: 16px;
+        }
+
+        .hotel-bottom {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+
+          .hotel-address {
+            font-size: 24px;
+            color: #999;
+            flex: 1;
+            margin-right: 20px;
+          }
+
+          .hotel-price {
+            color: #DC143C;
+            .price-unit {
+              font-size: 24px;
+              color: #999;
+              margin-left: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
