@@ -1,92 +1,140 @@
 .list-container {
-  background-color: #f7f8fa;
-  min-height: 100vh;
+  background-color: #f5f6f7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   .filter-bar {
-    display: flex;
     background: white;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
+    padding: 20px 24px;
     z-index: 10;
-    border-bottom: 1px solid #eee;
 
-    .filter-item {
-      flex: 1;
-      text-align: center;
-      font-size: 28px;
-      color: #666;
-      &.active {
-        color: #DC143C;
-        font-weight: bold;
+    .search-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      .city { font-size: 32px; font-weight: bold; margin-right: 20px; color: #0052ff; }
+      .date-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        .d-text { font-size: 20px; color: #333; font-weight: bold; }
       }
+      .search-input {
+        flex: 1;
+        background: #f5f6f7;
+        height: 60px;
+        border-radius: 30px;
+        padding: 0 20px;
+        line-height: 60px;
+        font-size: 26px;
+        color: #999;
+      }
+    }
+
+    .sort-tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .tab { font-size: 26px; color: #333; font-weight: bold; }
+    }
+
+    .quick-filters {
+      display: flex;
+      gap: 12px;
     }
   }
 
   .hotel-list {
-    padding: 20px;
+    flex: 1;
+    padding: 20px 24px;
+    box-sizing: border-box;
 
     .hotel-card {
       background: white;
       border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 24px;
-      display: flex;
-      flex-direction: column;
+      margin-bottom: 20px;
+      display: flex; // 左图右文布局
+      padding-bottom: 20px;
 
       .hotel-img {
-        width: 100%;
-        height: 350px;
+        width: 240px;
+        height: 360px; // 竖长图
         background-color: #eee;
+        border-radius: 16px 0 0 16px;
       }
 
       .hotel-info {
+        flex: 1;
         padding: 20px;
+        display: flex;
+        flex-direction: column;
 
-        .hotel-name {
-          font-size: 32px;
-          font-weight: bold;
-          color: #333;
+        .name-row {
+          margin-bottom: 8px;
+          .hotel-name { font-size: 32px; font-weight: bold; color: #333; margin-right: 8px; }
+          .diamond { font-size: 20px; }
         }
 
-        .hotel-rating {
-          margin-top: 10px;
+        .score-row {
           display: flex;
           align-items: center;
-          .rating-text {
-            margin-left: 10px;
-            font-size: 24px;
-            color: #ff9800;
+          margin-bottom: 12px;
+          .score-box {
+            background: #0052ff;
+            border-radius: 4px 12px 12px 4px;
+            display: flex;
+            overflow: hidden;
+            margin-right: 12px;
+            .score { background: white; color: #0052ff; font-size: 24px; font-weight: bold; padding: 0 6px; }
+            .level { color: white; font-size: 22px; padding: 0 8px; }
           }
+          .comment-info { font-size: 24px; color: #333; font-weight: bold; }
         }
 
-        .hotel-tags {
-          margin-top: 16px;
-        }
+        .address-text { font-size: 24px; color: #666; margin-bottom: 8px; }
+        .rank-text { font-size: 24px; color: #b88230; margin-bottom: 12px; font-weight: 500; }
 
-        .hotel-bottom {
-          margin-top: 20px;
+        .tags-row {
           display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: auto; // 把价格挤到底部
+          .simple-tag {
+            font-size: 20px;
+            color: #0052ff;
+            border: 1px solid rgba(0,82,255,0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+          }
+        }
 
-          .hotel-address {
-            font-size: 24px;
-            color: #999;
-            flex: 1;
-            margin-right: 20px;
+        .price-section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end; // 靠右对齐
+
+          .discount-box {
+            border: 1px solid #ffdec2; // 浅橙色边框
+            background: #fff8f2;      // 浅橙色背景
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin-bottom: 4px;
+            .d-text { color: #ff6600; font-size: 20px; }
           }
 
-          .hotel-price {
-            color: #DC143C;
-            .price-unit {
-              font-size: 24px;
-              color: #999;
-              margin-left: 4px;
-            }
+          .price-box {
+            display: flex;
+            align-items: baseline;
+            color: #ff6600; // 橙色价格
+            .currency { font-size: 24px; font-weight: bold; }
+            .amount { font-size: 44px; font-weight: bold; margin: 0 4px; line-height: 1; }
+            .unit { font-size: 22px; color: #999; }
           }
         }
       }
     }
+    .list-padding { height: 40px; }
   }
 }
