@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm:dev:*\"",
     "dev:server": "pnpm -F server start:dev",
     "dev:admin": "pnpm -F client-admin dev",
-    "dev:mobile": "pnpm -F client-mobile dev:h5",
+    "dev:mobile": "pnpm -F client-mobile dev:weapp",
     "build": "pnpm -r build"
   },
   "keywords": [],
