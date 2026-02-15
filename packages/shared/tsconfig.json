@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true // 解决模块兼容性问题
   },
   "include": ["src/**/*"]
 }
