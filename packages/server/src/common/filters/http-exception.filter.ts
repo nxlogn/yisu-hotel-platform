@@ -14,28 +14,19 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
 
-    let status = HttpStatus.INTERNAL_SERVER_ERROR;
-    let message = 'Internal server error';
-
-    if (exception instanceof HttpException) {
-      status = exception.getStatus();
-      const res = exception.getResponse();
-      
-      // 处理 NestJS 标准异常响应
-      if (typeof res === 'object' && res !== null && 'message' in res) {
-        const msg = (res as any).message;
-        message = Array.isArray(msg) ? msg.join(', ') : msg;
-      } else if (typeof res === 'string') {
-        message = res;
-      }
-    } else if (exception instanceof Error) {
-        // 开发环境下打印错误日志
-        console.error(exception);
-        message = exception.message;
-    }
-
+    // 判断是否为http异常，否则视为500服务器错误
+    const status = 
+      exception instanceof HttpException
+      ? exception.getStatus()
+      : HttpStatus.INTERNAL_SERVER_ERROR;
+    const message = 
+      exception instanceof HttpException
+      ? exception.message
+      : 'Internal server error';
+    
+    // 构造统一的错误响应
     const errorResponse: ApiResponse<null> = {
-      code: status,
+      code: status, // 非200表示异常
       msg: message,
       data: null,
     };
