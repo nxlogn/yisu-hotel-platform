@@ -6,8 +6,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-// 引入我们在 shared 中定义的类型
-import { ApiResponse } from '@yisu/shared'; 
+import { ApiResponse } from '@yisu/shared';
 
 @Injectable()
 export class TransformInterceptor<T>
@@ -19,9 +18,9 @@ export class TransformInterceptor<T>
   ): Observable<ApiResponse<T>> {
     return next.handle().pipe(
       map((data) => ({
-        code: 200, // 默认成功状态码
-        data: data || null,
+        code: 200,
         msg: 'success',
+        data,
       })),
     );
   }
