@@ -5,27 +5,38 @@
 
   .custom-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
     padding: 80px 30px 20px;
     display: flex;
     justify-content: space-between;
     pointer-events: none; // 让点击穿透到 Banner
     .nav-icon {
-      background: rgba(0,0,0,0.4);
-      width: 60px; height: 60px;
+      background: rgba(0, 0, 0, 0.4);
+      width: 60px;
+      height: 60px;
       border-radius: 30px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       pointer-events: auto; // 恢复点击
     }
-    .nav-right { display: flex; gap: 20px; }
+    .nav-right {
+      display: flex;
+      gap: 20px;
+    }
   }
 
   .hotel-banner {
     height: 520px; // 稍微加高
     position: relative;
-    .banner-img { width: 100%; height: 100%; }
-    
+    .banner-img {
+      width: 100%;
+      height: 100%;
+    }
+
     // 浮层按钮样式
     .banner-actions {
       position: absolute;
@@ -34,9 +45,9 @@
       right: 24px;
       display: flex;
       align-items: center;
-      
+
       .action-btn {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         color: white;
         font-size: 22px;
         padding: 8px 20px;
@@ -49,7 +60,10 @@
           font-weight: bold;
         }
       }
-      .sound-icon { margin-left: auto; color: white; }
+      .sound-icon {
+        margin-left: auto;
+        color: white;
+      }
     }
   }
 
@@ -59,7 +73,7 @@
     background: white;
     border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     z-index: 10;
 
     .header-row {
@@ -67,8 +81,16 @@
       justify-content: space-between;
       .title-box {
         flex: 1;
-        .hotel-name { font-size: 40px; font-weight: bold; color: #333; line-height: 1.3; }
-        .diamond-row { margin-top: 8px; font-size: 24px; }
+        .hotel-name {
+          font-size: 40px;
+          font-weight: bold;
+          color: #333;
+          line-height: 1.3;
+        }
+        .diamond-row {
+          margin-top: 8px;
+          font-size: 24px;
+        }
       }
       // 榜单徽章
       .rank-badge {
@@ -78,13 +100,24 @@
         background: linear-gradient(135deg, #fff0e6, #fff);
         padding: 10px 10px 10px 20px;
         border-radius: 20px 0 0 20px;
-        box-shadow: -2px 4px 10px rgba(0,0,0,0.05);
+        box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.05);
         text-align: center;
         border: 1px solid #ffe4d1;
         border-right: none;
-        .cup-icon { font-size: 30px; margin-bottom: 4px; }
-        .badge-title { font-size: 22px; color: #8b4513; font-weight: bold; display: block; }
-        .badge-desc { font-size: 18px; color: #a0522d; }
+        .cup-icon {
+          font-size: 30px;
+          margin-bottom: 4px;
+        }
+        .badge-title {
+          font-size: 22px;
+          color: #8b4513;
+          font-weight: bold;
+          display: block;
+        }
+        .badge-desc {
+          font-size: 18px;
+          color: #a0522d;
+        }
       }
     }
 
@@ -95,7 +128,12 @@
       padding: 6px 16px;
       border-radius: 8px;
       margin: 20px 0 30px;
-      .rank-text { font-size: 24px; color: #b8860b; margin-right: 8px; font-weight: 500; }
+      .rank-text {
+        font-size: 24px;
+        color: #b8860b;
+        margin-right: 8px;
+        font-weight: 500;
+      }
     }
 
     .facility-grid {
@@ -109,15 +147,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        .icon { font-size: 36px; margin-bottom: 8px; }
-        .f-text { font-size: 22px; color: #333; }
+        .icon {
+          font-size: 36px;
+          margin-bottom: 8px;
+        }
+        .f-text {
+          font-size: 22px;
+          color: #333;
+        }
       }
       .facility-more {
         margin-left: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 22px; color: #333;
+        font-size: 22px;
+        color: #333;
         padding-left: 20px;
         border-left: 1px solid #eee;
       }
@@ -136,12 +181,31 @@
         color: white;
         padding: 4px 12px;
         border-radius: 8px 8px 8px 0;
-        display: flex; align-items: baseline;
-        .score { font-size: 32px; font-weight: bold; margin-right: 6px; }
-        .level { font-size: 24px; }
-        .count { font-size: 20px; margin-left: 6px; opacity: 0.8; }
+        display: flex;
+        align-items: baseline;
+        .score {
+          font-size: 32px;
+          font-weight: bold;
+          margin-right: 6px;
+        }
+        .level {
+          font-size: 24px;
+        }
+        .count {
+          font-size: 20px;
+          margin-left: 6px;
+          opacity: 0.8;
+        }
       }
-      .review-desc { font-size: 26px; color: #333; font-weight: 500; flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+      .review-desc {
+        font-size: 26px;
+        color: #333;
+        font-weight: 500;
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
 
     .address-box {
@@ -150,13 +214,29 @@
       .addr-info {
         flex: 1;
         margin-right: 20px;
-        .addr-text { font-size: 28px; font-weight: bold; color: #333; line-height: 1.4; margin-bottom: 8px; }
-        .addr-detail { font-size: 24px; color: #999; }
+        .addr-text {
+          font-size: 28px;
+          font-weight: bold;
+          color: #333;
+          line-height: 1.4;
+          margin-bottom: 8px;
+        }
+        .addr-detail {
+          font-size: 24px;
+          color: #999;
+        }
       }
       .map-icon {
-        display: flex; flex-direction: column; align-items: center;
-        padding-left: 20px; border-left: 1px solid #eee;
-        .map-text { font-size: 20px; color: #333; margin-top: 4px; }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 20px;
+        border-left: 1px solid #eee;
+        .map-text {
+          font-size: 20px;
+          color: #333;
+          margin-top: 4px;
+        }
       }
     }
   }
@@ -167,10 +247,26 @@
     border-radius: 24px;
     padding: 30px;
     .date-row {
-      display: flex; align-items: center;
-      .date { font-size: 36px; font-weight: bold; color: #333; margin-right: 12px; }
-      .week { font-size: 24px; color: #666; margin-right: 20px; }
-      .night-tag { border: 1px solid #eee; border-radius: 20px; padding: 2px 12px; font-size: 20px; color: #666; }
+      display: flex;
+      align-items: center;
+      .date {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        margin-right: 12px;
+      }
+      .week {
+        font-size: 24px;
+        color: #666;
+        margin-right: 20px;
+      }
+      .night-tag {
+        border: 1px solid #eee;
+        border-radius: 20px;
+        padding: 2px 12px;
+        font-size: 20px;
+        color: #666;
+      }
     }
     .promo-tip {
       margin-top: 20px;
@@ -179,8 +275,12 @@
       font-size: 22px;
       padding: 12px 20px;
       border-radius: 12px;
-      display: flex; align-items: center;
-      .tip-icon { margin-right: 10px; font-size: 24px; }
+      display: flex;
+      align-items: center;
+      .tip-icon {
+        margin-right: 10px;
+        font-size: 24px;
+      }
     }
   }
 
@@ -191,41 +291,80 @@
       border-radius: 24px;
       padding: 24px;
       margin-bottom: 20px;
-      
+
       .room-main {
         display: flex;
         margin-bottom: 20px;
-        .room-img { width: 160px; height: 160px; border-radius: 12px; background: #eee; margin-right: 20px; flex-shrink: 0;}
+        .room-img {
+          width: 160px;
+          height: 160px;
+          border-radius: 12px;
+          background: #eee;
+          margin-right: 20px;
+          flex-shrink: 0;
+        }
         .room-info {
           flex: 1;
-          .r-name { font-size: 32px; font-weight: bold; color: #333; margin-bottom: 8px; display: block; }
-          .r-desc { font-size: 24px; color: #666; display: block; margin-bottom: 12px; }
+          .r-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+          }
+          .r-desc {
+            font-size: 24px;
+            color: #666;
+            display: block;
+            margin-bottom: 12px;
+          }
           .r-tags {
-            display: flex; gap: 8px;
-            .r-tag { border: 1px solid #0052ff; color: #0052ff; font-size: 20px; padding: 2px 8px; border-radius: 4px; }
+            display: flex;
+            gap: 8px;
+            .r-tag {
+              border: 1px solid #0052ff;
+              color: #0052ff;
+              font-size: 20px;
+              padding: 2px 8px;
+              border-radius: 4px;
+            }
           }
         }
       }
 
       .room-action-row {
-        display: flex; justify-content: space-between; align-items: flex-end;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         background: #fcfcfc;
         margin: 0 -24px -24px;
         padding: 20px 24px;
         border-top: 1px solid #f8f8f8;
         border-radius: 0 0 24px 24px;
 
-        .cancel-rule { font-size: 22px; color: #0052ff; }
-        
+        .cancel-rule {
+          font-size: 22px;
+          color: #0052ff;
+        }
+
         .price-group {
-          display: flex; align-items: center;
+          display: flex;
+          align-items: center;
           .price-val {
-            color: #0052ff; margin-right: 16px;
-            .symbol { font-size: 24px; font-weight: bold; }
-            .num { font-size: 44px; font-weight: bold; }
+            color: #0052ff;
+            margin-right: 16px;
+            .symbol {
+              font-size: 24px;
+              font-weight: bold;
+            }
+            .num {
+              font-size: 44px;
+              font-weight: bold;
+            }
           }
           .book-btn {
-            background: #0052ff; color: white;
+            background: #0052ff;
+            color: white;
             padding: 12px 24px;
             border-radius: 8px;
             font-size: 26px;
@@ -237,31 +376,58 @@
   }
 
   .bottom-bar {
-    position: fixed; bottom: 0; left: 0; width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: white;
     padding: 20px 30px 50px; // 底部安全区
-    display: flex; align-items: center;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
     z-index: 100;
-    
+
     .service-btn {
-      display: flex; flex-direction: column; align-items: center; margin-right: 40px;
-      .s-text { font-size: 20px; color: #333; margin-top: 4px; }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 40px;
+      .s-text {
+        font-size: 20px;
+        color: #333;
+        margin-top: 4px;
+      }
     }
 
     .price-total {
-      flex: 1; color: #0052ff;
-      .symbol { font-size: 28px; font-weight: bold; }
-      .num { font-size: 48px; font-weight: bold; }
-      .qi { font-size: 22px; color: #999; margin-left: 4px; }
+      flex: 1;
+      color: #0052ff;
+      .symbol {
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .num {
+        font-size: 48px;
+        font-weight: bold;
+      }
+      .qi {
+        font-size: 22px;
+        color: #999;
+        margin-left: 4px;
+      }
     }
 
     .book-btn {
-      background: #0052ff; color: white;
-      width: 220px; height: 80px;
-      display: flex; align-items: center; justify-content: center;
+      background: #0052ff;
+      color: white;
+      width: 220px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 40px;
-      font-size: 30px; font-weight: bold;
+      font-size: 30px;
+      font-weight: bold;
     }
   }
 }
